@@ -1,7 +1,7 @@
-import {store} from './Store';
-import {history} from "./BrowserHistory";
+import {configureStore} from './Store';
+import {browserHistory} from "./BrowserHistory";
 
 export {
-  store,
-  history
+  configureStore,
+  browserHistory
 };

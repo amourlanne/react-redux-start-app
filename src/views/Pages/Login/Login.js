@@ -14,11 +14,21 @@ import {
   InputGroupText,
   Row
 } from 'reactstrap';
+import {connect} from "react-redux";
+import {Helmet} from "react-helmet";
 
 class Login extends Component {
   render() {
+    console.log(this.props);
     return (
       <div className="app flex-row align-items-center">
+        <Helmet>
+          <title>Login Page</title>
+          <meta
+            name="description"
+            content="Login page of React.js Boilerplate application"
+          />
+        </Helmet>
         <Container>
           <Row className="justify-content-center">
             <Col md="8">
@@ -79,4 +89,16 @@ class Login extends Component {
   }
 }
 
-export default Login;
+const mapStateToProps = (state) => {
+  return {
+  }
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {}
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Login);

@@ -1,6 +1,6 @@
-import React, { Component, Suspense } from 'react';
-import { Redirect, Route, Switch } from 'react-router-dom';
+import React, { Component } from 'react';
 import { Container } from 'reactstrap';
+import {Link} from "react-router-dom";
 
 class DefaultLayout extends Component {
 
@@ -13,12 +13,17 @@ class DefaultLayout extends Component {
           <main className="main">
             <Container fluid>
               Container
+              <Link className="router-link" to="/login">
+                login
+              </Link>
             </Container>
           </main>
         </div>
       </div>
     );
   }
+
+
 }
 
 export default DefaultLayout;

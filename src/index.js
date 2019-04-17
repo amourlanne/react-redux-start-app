@@ -1,16 +1,21 @@
 import 'react-app-polyfill/ie9'; // For IE 9-11 support
 import 'react-app-polyfill/ie11'; // For IE 11 support
-import './polyfill'
+import './polyfill';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import {Provider} from "react-redux";
-import {store} from "./helpers";
+import {configureStore, browserHistory} from "./helpers";
+import {Router} from "react-router-dom";
+
+const store = configureStore(browserHistory);
 
 ReactDOM.render(
   <Provider store={store}>
-    <App/>
+    <Router history={browserHistory}>
+      <App/>
+    </Router>
   </Provider>,
   document.getElementById('root'));
 
