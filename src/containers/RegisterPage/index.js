@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Button, Card, CardBody, CardFooter, Col, Container, Form, Input, InputGroup, InputGroupAddon, InputGroupText, Row } from 'reactstrap';
 
-class Register extends Component {
+class RegisterPage extends Component {
   render() {
     return (
       <div className="app flex-row align-items-center">
@@ -65,4 +65,4 @@ class Register extends Component {
   }
 }
 
-export default Register;
+export default RegisterPage;

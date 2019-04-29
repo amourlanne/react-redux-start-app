@@ -1,25 +1,25 @@
 import React, { Component } from 'react';
 import { Helmet } from 'react-helmet';
-import {Route, Router, Switch} from 'react-router-dom';
+import {Route, Switch} from 'react-router-dom';
 import Loadable from 'react-loadable';
 import './App.scss';
 
 const loading = () => <div className="animated fadeIn pt-3 text-center">Loading...</div>;
 
 // Containers
-const DefaultLayout = Loadable({
-  loader: () => import('./containers/DefaultLayout'),
+const HomePage = Loadable({
+  loader: () => import('./containers/HomePage/index'),
   loading
 });
 
 // Pages
-const Login = Loadable({
-  loader: () => import('./views/Pages/Login'),
+const LoginPage = Loadable({
+  loader: () => import('./containers/LoginPage/index'),
   loading
 });
 
-const Register = Loadable({
-  loader: () => import('./views/Pages/Register'),
+const RegisterPage = Loadable({
+  loader: () => import('./containers/RegisterPage/index'),
   loading
 });
 
@@ -28,15 +28,15 @@ class App extends Component {
     return (
       <div className="app-wrapper">
         <Helmet
-          titleTemplate="%s - React.js Boilerplate"
-          defaultTitle="React.js Boilerplate"
+          titleTemplate="%s - React Redux App"
+          defaultTitle="React Redux App"
         >
-          <meta name="description" content="A React.js Boilerplate application" />
+          <meta name="description" content="A React.js Redux application" />
         </Helmet>
         <Switch>
-          <Route exact path="/login" name="Login Page" component={Login} />
-          <Route exact path="/register" name="Register Page" component={Register} />
-          <Route path="/" name="Home" component={DefaultLayout} />
+          <Route exact path="/login" name="Login Page" component={LoginPage} />
+          <Route exact path="/register" name="Register Page" component={RegisterPage} />
+          <Route path="/" name="Home" component={HomePage} />
         </Switch>
       </div>
 

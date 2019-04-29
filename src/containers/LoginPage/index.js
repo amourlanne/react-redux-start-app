@@ -17,7 +17,7 @@ import {
 import {connect} from "react-redux";
 import {Helmet} from "react-helmet";
 
-class Login extends Component {
+class LoginPage extends Component {
   render() {
     console.log(this.props);
     return (
@@ -45,7 +45,7 @@ class Login extends Component {
                           </InputGroupText>
                         </InputGroupAddon>
                         <Input type="email" placeholder="Email" autoComplete="email"
-                               name="email"/>
+                          name="email"/>
                       </InputGroup>
                       <InputGroup className="mb-4">
                         <InputGroupAddon addonType="prepend">
@@ -54,7 +54,7 @@ class Login extends Component {
                           </InputGroupText>
                         </InputGroupAddon>
                         <Input type="password" placeholder="Password"
-                               autoComplete="current-password" name="password"/>
+                          autoComplete="current-password" name="password"/>
                       </InputGroup>
                       <Row>
                         <Col xs="6">
@@ -91,14 +91,14 @@ class Login extends Component {
 
 const mapStateToProps = (state) => {
   return {
-  }
+  };
 };
 
 const mapDispatchToProps = (dispatch) => {
-  return {}
-}
+  return {};
+};
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Login);
+)(LoginPage);

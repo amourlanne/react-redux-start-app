@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
 import { Container } from 'reactstrap';
 import {Link} from "react-router-dom";
+import {Header, Footer} from "../../components";
 
-class DefaultLayout extends Component {
+class HomePage extends Component {
 
   loading = () => <div className="animated fadeIn pt-1 text-center">Loading...</div>
 
   render() {
     return (
       <div className="app">
+        <Header/>
         <div className="app-body">
           <main className="main">
             <Container fluid>
@@ -19,6 +21,7 @@ class DefaultLayout extends Component {
             </Container>
           </main>
         </div>
+        <Footer/>
       </div>
     );
   }
@@ -26,4 +29,4 @@ class DefaultLayout extends Component {
 
 }
 
-export default DefaultLayout;
+export default HomePage;
