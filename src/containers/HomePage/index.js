@@ -2,12 +2,16 @@ import React, { Component } from 'react';
 import { Container } from 'reactstrap';
 import {Link} from "react-router-dom";
 import {Header, Footer} from "../../components";
+import {connect} from "react-redux";
 
 class HomePage extends Component {
 
   loading = () => <div className="animated fadeIn pt-1 text-center">Loading...</div>
 
   render() {
+
+    const { appName } = this.props;
+
     return (
       <div className="app">
         <Header/>
@@ -18,6 +22,7 @@ class HomePage extends Component {
               <Link className="router-link" to="/login">
                 login
               </Link>
+              <h1>Application : {appName}</h1>
             </Container>
           </main>
         </div>
@@ -29,4 +34,12 @@ class HomePage extends Component {
 
 }
 
-export default HomePage;
+function mapStateToProps(state) {
+  const { appName } = state.global;
+
+  return {
+    appName: appName,
+  };
+}
+export default connect(mapStateToProps)(HomePage);
+
