@@ -1,67 +1,63 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Banner from './images/banner.jpg';
 import './style.scss';
 import {globalActions} from "../../redux/actions/Global";
 import {connect} from "react-redux";
+import logo from "../../containers/HomePage/logo.svg";
 
 class Header extends React.Component { // eslint-disable-line react/prefer-stateless-function
 
   constructor(props) {
     super(props);
 
-    this.state = {
-      appName: '',
-    };
-
-    this.handleChangeName = this.handleChangeName.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
-  handleChangeName(e) {
+  handleChange(e) {
     const {value} = e.target;
-    this.setState({appName: value});
-  }
+      const {setAppName} = this.props;
 
-  handleSubmit(e) {
-    e.preventDefault();
-
-    const {appName} = this.state;
-    const {setAppName} = this.props;
-
-    setAppName(appName);
+      setAppName(value);
   }
 
   render() {
+    const { appName } = this.props;
+
     return (
-      <div className="header">
-        <a href="https://twitter.com/flexdinesh">
-          <img src={Banner} alt="react-redux-boilerplate - Logo" />
-        </a>
-        <div className="nav-bar">
-          <Link className="router-link" to="/">
-            Home
-          </Link>
-          <Link className="router-link" to="/features">
-            Features
-          </Link>
-          <form onSubmit={this.handleSubmit}>
-            <p>
-              <label htmlFor="prenom">Saisissez le nom de l'app :</label>
-              <input type="text" name="appName" id="appName" onChange={this.handleChangeName}/>
-              <input type="submit"/>
-            </p>
-          </form>
+        <div className="App-header">
+            <img src={logo} className="App-logo" alt="logo" />
+            <h2>
+                Welcome to {appName} App
+            </h2>
+            <a
+                className="App-link"
+                href="https://github.com/amourlanne/react-redux-start-app"
+                target="_blank"
+            >
+                Github
+            </a>
+            <Link className="router-link" to="/login">Login</Link>
+                <div className="input-group">
+                    <input type="text" className="form-control" onChange={this.handleChange} />
+                </div>
+
         </div>
-      </div>
     );
   }
 }
 
-function mapDispatchToProps(dispatch) {
-  return {
-    setAppName: (appName) => dispatch(globalActions.setAppName(appName)),
-  };
+function mapStateToProps(state) {
+    const { appName } = state.global;
+
+    return {
+        appName: appName,
+    };
 }
 
-export default connect(null, mapDispatchToProps)(Header);
+function mapDispatchToProps(dispatch) {
+    return {
+        setAppName: (appName) => dispatch(globalActions.setAppName(appName)),
+    };
+}
+
+export default connect(mapStateToProps ,mapDispatchToProps)(Header);

@@ -1,7 +1,7 @@
 import {globalConstants} from "../../constants/Global/constants";
 
 const initialState = {
-  appName : ""
+  appName : "React Redux"
 };
 
 export function globalReducer(state = initialState, action) {
