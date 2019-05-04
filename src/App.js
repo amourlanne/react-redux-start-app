@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { Helmet } from 'react-helmet';
 import {Route, Switch} from 'react-router-dom';
 import Loadable from 'react-loadable';
-import './App.scss';
+import "./scss/style.scss"
+import {connect} from "react-redux";
 
 const loading = () => <div className="animated fadeIn pt-3 text-center">Loading...</div>;
 
@@ -25,8 +26,11 @@ const RegisterPage = Loadable({
 
 class App extends Component {
   render() {
+
+    const { isReact } = this.props;
+
     return (
-      <div className="app-wrapper">
+      <div className={`app-wrapper ${isReact ? "react" : "redux"}`}>
         <Helmet
           titleTemplate="%s - React Redux App"
           defaultTitle="React Redux App"
@@ -44,4 +48,12 @@ class App extends Component {
   }
 }
 
-export default App;
+function mapStateToProps(state) {
+  const { isReact } = state.theme;
+
+  return {
+    isReact: isReact,
+  };
+}
+
+export default connect(mapStateToProps)(App);

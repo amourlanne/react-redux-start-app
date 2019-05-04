@@ -1,17 +1,19 @@
 import React, { Component } from 'react';
-import {Header, Footer} from "../../components";
 import "./style.scss";
+// import {Link} from "react-router-dom";
+import {Welcome} from "../../components";
 
 class HomePage extends Component {
 
-  loading = () => <div className="animated fadeIn pt-1 text-center">Loading...</div>
-
   render() {
-
     return (
-        <div className="App">
-            <Header/>
+      <div className="App">
+        <div className="App-header">
+          <Welcome/>
+          <a className="App-link" href="https://github.com/amourlanne/react-redux-start-app">Github</a>
+          {/*<Link className="App-link" to="/login">Login</Link>*/}
         </div>
+      </div>
     );
   }
 }

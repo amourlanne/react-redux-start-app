@@ -1,11 +1,11 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import Header from './';
+import Welcome from './';
 
-describe('<Header />', () => {
+describe('<Theme />', () => {
   it('should render a div', () => {
-    const renderedComponent = shallow(<Header />);
+    const renderedComponent = shallow(<Welcome />);
     expect(renderedComponent.length).toEqual(1);
   });
 });

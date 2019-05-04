@@ -1,5 +1,5 @@
-import {globalConstants} from "./Global/constants";
+import {themeConstants} from "./Theme/constants";
 
 export {
-  globalConstants,
+  themeConstants,
 };

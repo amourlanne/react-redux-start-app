@@ -1,5 +1,5 @@
-import {globalActions} from "./Global/actions";
+import {themeActions} from "./Theme/actions";
 
 export {
-  globalActions,
+  themeActions,
 };

@@ -19,7 +19,6 @@ import {Helmet} from "react-helmet";
 
 class LoginPage extends Component {
   render() {
-    console.log(this.props);
     return (
       <div className="app flex-row align-items-center">
         <Helmet>
